@@ -1,0 +1,50 @@
+:root {
+  --default-border: 2px solid black;
+  --default-radius: 10px;
+  --default-section-width: 80%;
+}
+
+* {
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+}
+
+html {
+  font-family: "Avenir", "Nunito", sans-serif;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer h2 {
+  padding: 0;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.credits {
+  opacity: 0.5;
+}
+
+#round1, #round2, #round3 {
+  border: var(--default-border);
+  border-radius: var(--default-radius);
+  width: var(--default-section-width);
+}

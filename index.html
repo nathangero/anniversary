@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/assets/icons8-poppy-32.png" />
   <meta name="description" content="A way to celebrate my partner's anniversary">
-  <title>Happy 3rd Anniversary!</title>
-  <link rel="stylesheet" href="./style.css">
+  <title>Happy Anniversary!</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+    </script>
+  <link href="https://fonts.cdnfonts.com/css/avenir" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  Hello
+  <h1 id="title"></h1>
+
+  <main>
+    <section id="round1">
+      <h2 id="question1"></h2>
+      <button id="start-round-2" class="button-next-round" >Next Question</button>
+    </section>
+
+    <section id="round2">
+      <h2 id="question2"></h2>
+      <button id="start-round-3" class="button-next-round" disabled>Next Question</button>
+    </section>
+
+    <section id="round3">
+      <h2 id="question3"></h2>
+      <button id="start-what-next" class="button-next-round" disabled>What's next?...</button>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Made with love</h2>
+    <p class="credits">Favion from <a href="/" target="_blank">icons8.com</a></p>
+  </footer>
+
+  <script type="module" src="script.js"></script>
 </body>
+
 </html>
