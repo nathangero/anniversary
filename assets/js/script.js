@@ -48,14 +48,10 @@ const getRandomQuestion = (questions) => {
 
 const checkAnswer = (answer) => {
   let answers;
-  console.log("questionAnswerKeys:", questionAnswerKeys);
-  console.log("questionAnswerKeys[", roundNumber, "]:", questionAnswerKeys[roundNumber]);
 
   switch (roundNumber) {
     case 1:
       answers = ROUND1_ANSWERS[questionAnswerKeys[roundNumber]];
-      console.log("answers:", answers);
-      console.log("answers.includes(answer.toLowerCase()):", answers.includes(answer.toLowerCase()));
       return answers.includes(answer.toLowerCase());
     case 2:
       answers = ROUND2_ANSWERS[questionAnswerKeys[roundNumber]];
@@ -111,7 +107,7 @@ $("main").on("submit", "#question1", function (event) {
   const answer = $("#answer1").val();
   if (!answer) alert("Answer can't be blank")
   const isCorrect = checkAnswer(answer, "#question1");
-  console.log("Round 1 correct?", isCorrect);
+
   if (isCorrect) {
     roundNumber++;
     renderRound2();
