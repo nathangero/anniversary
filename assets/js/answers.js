@@ -6,9 +6,5 @@ export const ROUND1_ANSWERS = {
 }
 
 export const ROUND2_ANSWERS = {
-  FAV_PERSON: ["nathan", "baby", "big baby", "abbie", "jenna", "family", "jarmans", "caroline", "harlows", "harlow", "riley", "alexa", "reese", "alison", "garron", "bishop", "cringe content crew", "ccc"]
-}
-
-export const ROUND3_ANSWERS = {
-  FAV_MEMORY: "anything"
+  FAV_PERSON: ["nathan", "baby", "big baby", "abbie", "jenna", "family", "jarmans", "caroline", "harlows", "harlow", "riley", "alexa", "reese", "alison", "garron", "bishop", "cringe content crew", "ccc"],
 }
