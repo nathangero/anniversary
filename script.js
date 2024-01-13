@@ -74,6 +74,8 @@ const renderRound1 = () => {
       </form>
     </section>`
   )
+
+  $("#answer1").focus();
 }
 
 const renderRound2 = () => {
@@ -86,6 +88,8 @@ const renderRound2 = () => {
       </form>
     </section>`
   )
+
+  $("#answer2").focus();
 }
 
 const renderRound3 = () => {
@@ -98,6 +102,7 @@ const renderRound3 = () => {
       </form>
     </section>`
   )
+  $("#answer3").focus();
 }
 
 $("main").on("submit", "#question1", function (event) {
