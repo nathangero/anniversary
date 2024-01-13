@@ -9,4 +9,6 @@ export const ROUND2_QUESTIONS = {
 
 export const ROUND3_QUESTIONS = {
   FAV_MEMORY: "What's one of your favorite memories of last year?",
+  ACCOMPLISHMENT: "What's something you accomplished last year?",
+  
 }

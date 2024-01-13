@@ -1,19 +1,14 @@
 import { ROUND1_QUESTIONS, ROUND2_QUESTIONS, ROUND3_QUESTIONS } from "./questions.js";
-import { ROUND1_ANSWERS, ROUND2_ANSWERS, ROUND3_ANSWERS } from "./answers.js";
+import { ROUND1_ANSWERS, ROUND2_ANSWERS } from "./answers.js";
 
 let roundNumber = 1;
-const questionAnswerKeys = {
-  1: "",
-  2: "",
-  3: "",
-}
+const questionAnswerKeys = {}
 
 $(function () {
-  calcAnniversary();
   renderRound1();
 });
 
-const calcAnniversary = () => {
+const renderAnniversary = () => {
   const startMonth = 1;
   const startDate = 15;
   const startYear = 2022;
@@ -34,6 +29,13 @@ const calcAnniversary = () => {
   }
 
   $("#title").text(`Happy ${yearCount} year Anniversary!`);
+  $("main").html(
+    `<section>
+      <h2>Here's to another year with the best partner ever!!</h2>
+      <p>I love you so much baby 😚 and I love eeeeevery second being with you! Here's a video of ${year - 1} together</p>
+
+    </section>`
+  )
 }
 
 const getRandomQuestion = (questions) => {
@@ -47,7 +49,7 @@ const getRandomQuestion = (questions) => {
 const checkAnswer = (answer) => {
   let answers;
   console.log("questionAnswerKeys:", questionAnswerKeys);
-  console.log("questionAnswerKeys[", roundNumber ,"]:", questionAnswerKeys[roundNumber]);
+  console.log("questionAnswerKeys[", roundNumber, "]:", questionAnswerKeys[roundNumber]);
 
   switch (roundNumber) {
     case 1:
@@ -59,8 +61,7 @@ const checkAnswer = (answer) => {
       answers = ROUND2_ANSWERS[questionAnswerKeys[roundNumber]];
       return answers.includes(answer.toLowerCase());
     case 3:
-      answers = ROUND3_ANSWERS[questionAnswerKeys[roundNumber]];
-      return answers.includes(answer.toLowerCase());
+      return true;
   }
 }
 
@@ -69,7 +70,7 @@ const renderRound1 = () => {
     `<section id="round1">
       <h2>${getRandomQuestion(ROUND1_QUESTIONS)}</h2>
       <form id="question1" action="">
-        <input id="answer1" type="text" placeholder="Type here" autofocus>
+        <input id="answer1" type="text" placeholder="Type here">
         <button id="answer-round-1" class="button-next-round" type="submit">Check Answer</button>
       </form>
     </section>`
@@ -83,7 +84,7 @@ const renderRound2 = () => {
     `<section id="round2">
       <h2 id="question2">${getRandomQuestion(ROUND2_QUESTIONS)}</h2>
       <form id="question2" action="">
-        <input id="answer2" placeholder="Type here" autofocus>
+        <input id="answer2" placeholder="Type here">
         <button id="answer-round-2" class="button-next-round" type="submit">Next Question</button>
       </form>
     </section>`
@@ -96,8 +97,8 @@ const renderRound3 = () => {
   $("main").html(
     `<section id="round3">
       <h2 id="question3">${getRandomQuestion(ROUND3_QUESTIONS)}</h2>
-      <form id="question2" action="">
-        <input id="answer3" placeholder="Type here" autofocus>
+      <form id="question3" action="">
+        <input id="answer3" placeholder="Type here">
         <button id="answer-round-3" class="button-next-round" type="submit">What's Next?...</button>
       </form>
     </section>`
@@ -129,20 +130,19 @@ $("main").on("submit", "#question2", function (event) {
   const isCorrect = checkAnswer(answer);
 
   if (isCorrect) {
+    roundNumber++;
     renderRound3();
   } else {
+    if ($(".wrong-answer")) return; // Prevent rendering this text multiple times
 
+    $("#answer1").after(
+      `<p class="wrong-answer"><b>*Please try again</b></p>`
+    )
   }
 });
 
 $("main").on("submit", "#question3", function (event) {
   event.preventDefault();
-  const answer = $("#answer3").val();
-  const isCorrect = checkAnswer(answer);
-
-  if (isCorrect) {
-    renderRound1();
-  } else {
-
-  }
+  // There's no wrong answer here
+  renderAnniversary();
 });
