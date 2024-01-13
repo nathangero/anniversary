@@ -1,12 +1,16 @@
-import { correctR1, correctR2, correctR3 } from "./flags.js";
-import { ROUND1, ROUND2, ROUND3 } from "./questions.js";
+import { ROUND1_QUESTIONS, ROUND2_QUESTIONS, ROUND3_QUESTIONS } from "./questions.js";
+import { ROUND1_ANSWERS, ROUND2_ANSWERS, ROUND3_ANSWERS } from "./answers.js";
 
+let roundNumber = 1;
+const questionAnswerKeys = {
+  1: "",
+  2: "",
+  3: "",
+}
 
 $(function () {
   calcAnniversary();
   renderRound1();
-  renderRound2();
-  renderRound3();
 });
 
 const calcAnniversary = () => {
@@ -32,39 +36,108 @@ const calcAnniversary = () => {
   $("#title").text(`Happy ${yearCount} year Anniversary!`);
 }
 
-const renderRound1 = () => {
-  $("#question1").text(correctR1 ? "Correct" : "Incorrect");
-  const question = $("#start-round-2");
+const getRandomQuestion = (questions) => {
+  const questionValues = Object.values(questions);
+  const questionKeys = Object.keys(questions);
+  const randomKey = Math.floor(Math.random() * questionKeys.length);
+  questionAnswerKeys[roundNumber] = questionKeys[randomKey]; // Save the question key to get the corresponding answer later.
+  return questionValues[randomKey];
 }
 
-const unrenderRound1 = () => {
-  $("#round1").text("");
+const checkAnswer = (answer) => {
+  let answers;
+  console.log("questionAnswerKeys:", questionAnswerKeys);
+  console.log("questionAnswerKeys[", roundNumber ,"]:", questionAnswerKeys[roundNumber]);
+
+  switch (roundNumber) {
+    case 1:
+      answers = ROUND1_ANSWERS[questionAnswerKeys[roundNumber]];
+      console.log("answers:", answers);
+      console.log("answers.includes(answer.toLowerCase()):", answers.includes(answer.toLowerCase()));
+      return answers.includes(answer.toLowerCase());
+    case 2:
+      answers = ROUND2_ANSWERS[questionAnswerKeys[roundNumber]];
+      return answers.includes(answer.toLowerCase());
+    case 3:
+      answers = ROUND3_ANSWERS[questionAnswerKeys[roundNumber]];
+      return answers.includes(answer.toLowerCase());
+  }
+}
+
+const renderRound1 = () => {
+  $("main").html(
+    `<section id="round1">
+      <h2>${getRandomQuestion(ROUND1_QUESTIONS)}</h2>
+      <form id="question1" action="">
+        <input id="answer1" type="text" placeholder="Type here" autofocus>
+        <button id="answer-round-1" class="button-next-round" type="submit">Check Answer</button>
+      </form>
+    </section>`
+  )
 }
 
 const renderRound2 = () => {
-  $("#question2").text(correctR2 ? "Correct" : "Incorrect");
-}
-
-const unrenderRound2 = () => {
-  $("#round2").text("");
+  $("main").html(
+    `<section id="round2">
+      <h2 id="question2">${getRandomQuestion(ROUND2_QUESTIONS)}</h2>
+      <form id="question2" action="">
+        <input id="answer2" placeholder="Type here" autofocus>
+        <button id="answer-round-2" class="button-next-round" type="submit">Next Question</button>
+      </form>
+    </section>`
+  )
 }
 
 const renderRound3 = () => {
-  $("#question3").text(correctR3 ? "Correct" : "Incorrect");
+  $("main").html(
+    `<section id="round3">
+      <h2 id="question3">${getRandomQuestion(ROUND3_QUESTIONS)}</h2>
+      <form id="question2" action="">
+        <input id="answer3" placeholder="Type here" autofocus>
+        <button id="answer-round-3" class="button-next-round" type="submit">What's Next?...</button>
+      </form>
+    </section>`
+  )
 }
 
-const unrenderRound3 = () => {
-  $("#round3").text("");
-}
+$("main").on("submit", "#question1", function (event) {
+  event.preventDefault();
+  const answer = $("#answer1").val();
+  if (!answer) alert("Answer can't be blank")
+  const isCorrect = checkAnswer(answer, "#question1");
+  console.log("Round 1 correct?", isCorrect);
+  if (isCorrect) {
+    roundNumber++;
+    renderRound2();
+  } else {
+    if ($(".wrong-answer")) return; // Prevent rendering this text multiple times
 
-$("#start-round-2").click(function (e) {
-  unrenderRound1();
+    $("#answer1").after(
+      `<p class="wrong-answer"><b>*Please try again</b></p>`
+    )
+  }
 });
 
-$("#start-round-3").click(function (e) {
+$("main").on("submit", "#question2", function (event) {
+  event.preventDefault();
+  const answer = $("#answer2").val();
+  const isCorrect = checkAnswer(answer);
 
+  if (isCorrect) {
+    renderRound3();
+  } else {
+
+  }
 });
 
-$("#start-what-next").click(function (e) {
+$("main").on("submit", "#question3", function (event) {
+  event.preventDefault();
+  const answer = $("#answer3").val();
+  const isCorrect = checkAnswer(answer);
 
+  if (isCorrect) {
+    renderRound1();
+  } else {
+
+  }
 });

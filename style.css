@@ -6,6 +6,7 @@
   --color-poppy: #FF9432;
   --color-black: #07090F;
   --color-auburn: #A62639;
+  --color-auburn-hover: #771B29;
 }
 
 * {
@@ -40,7 +41,7 @@ header {
 }
 
 main {
-  width: 80%;
+  width: 100%;
 }
 
 footer {
@@ -67,6 +68,19 @@ section {
   padding: 10px;
 }
 
+section form {
+  display: flex;
+  flex-direction: column;
+}
+
+section input {
+  outline: none;
+  border: none;
+  border-bottom: var(--default-border);
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 section button {
   background-color: var(--color-auburn);
   color: white;
@@ -74,6 +88,15 @@ section button {
   border: var(--default-border);
   border-radius: var(--default-radius);
   font-size: 20px;
+  cursor: pointer;
+}
+
+section button:hover:not(:disabled) {
+  background-color: var(--color-auburn-hover);
+}
+
+section button:disabled {
+  opacity: 0.5;
 }
 
 section h2 {
@@ -87,6 +110,11 @@ h1 {
 
 .credits {
   opacity: 0.5;
+}
+
+.wrong-answer {
+  color: var(--color-auburn);
+  margin-bottom: 10px;
 }
 
 #round1, #round2, #round3 {
