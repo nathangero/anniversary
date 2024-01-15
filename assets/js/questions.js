@@ -3,6 +3,7 @@ export const ROUND1_QUESTIONS = {
   FAV_FLOWER: "What's your favorite flower?",
   FAV_PIZZA_PLACE: "What's your favorite pizza place we frequent?",
   WHO_LOVES_YOU: "Who loves you soooooo much no matter what?",
+  CHRISTMAS_GIFT_2023: "What hobby did you pick up for Christmas gifts?",
 }
 
 export const ROUND2_QUESTIONS = {
