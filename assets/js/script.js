@@ -28,12 +28,14 @@ const renderAnniversary = () => {
     yearCount = (year - 1) - startYear;
   }
 
+  $("title").text(`Happy ${yearCount} year Anniversary!`);
   $("#title").text(`Happy ${yearCount} year Anniversary!`);
   $("main").html(
     `<section>
       <h2>Here's to another year with the best partner ever!!</h2>
       <p>I love you so much baby 😚 and I love eeeeevery second being with you! Here's a video of ${year - 1} together</p>
-
+      <br>
+      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JSgyVs4GHtI?si=scXprVeMwSjf1Mt5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </section>`
   )
 }
@@ -67,7 +69,11 @@ const renderRound1 = () => {
       <h2>${getRandomQuestion(ROUND1_QUESTIONS)}</h2>
       <form id="question1" action="">
         <input id="answer1" type="text" placeholder="Type here">
-        <button id="answer-round-1" class="button-next-round" type="submit">Check Answer</button>
+        <div class="button-group">
+          <button id="reload-question" class="button-new-question" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-counterclockwise custom-arrow" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/><path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/></svg>
+          </button>
+          <button id="answer-round-1" class="button-next-round" type="submit">Check Answer</button>
+        </div>
       </form>
     </section>`
   )
@@ -81,7 +87,11 @@ const renderRound2 = () => {
       <h2 id="question2">${getRandomQuestion(ROUND2_QUESTIONS)}</h2>
       <form id="question2" action="">
         <input id="answer2" placeholder="Type here">
-        <button id="answer-round-2" class="button-next-round" type="submit">Next Question</button>
+        <div class="button-group">
+          <button id="reload-question" class="button-new-question" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-counterclockwise custom-arrow" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/><path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/></svg>
+          </button>
+          <button id="answer-round-2" class="button-next-round" type="submit">Next Question</button>
+        </div>
       </form>
     </section>`
   )
@@ -95,7 +105,11 @@ const renderRound3 = () => {
       <h2 id="question3">${getRandomQuestion(ROUND3_QUESTIONS)}</h2>
       <form id="question3" action="">
         <input id="answer3" placeholder="Type here">
-        <button id="answer-round-3" class="button-next-round" type="submit">What's Next?...</button>
+        <div class="button-group">
+          <button id="reload-question" class="button-new-question" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-counterclockwise custom-arrow" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/><path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/></svg>
+          </button>
+          <button id="answer-round-3" class="button-next-round" type="submit">What's Next?...</button>
+        </div>
       </form>
     </section>`
   )
@@ -141,4 +155,28 @@ $("main").on("submit", "#question3", function (event) {
   event.preventDefault();
   // There's no wrong answer here
   renderAnniversary();
+});
+
+
+
+$("main").on("click", "#reload-question", function (event) {
+  event.preventDefault();
+  let newQuestions;
+
+  switch (roundNumber) {
+    case 1:
+      newQuestions = getRandomQuestion(ROUND1_QUESTIONS);
+      break;
+
+    case 2:
+      newQuestions = getRandomQuestion(ROUND2_QUESTIONS);
+      break;
+
+    case 3:
+      newQuestions = getRandomQuestion(ROUND3_QUESTIONS);
+      break;
+  }
+
+  // replace the current question with a new one
+  $(`#round${roundNumber}`).children("h2").text(newQuestions);
 });

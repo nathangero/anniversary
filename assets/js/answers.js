@@ -10,6 +10,7 @@ export const ROUND1_ANSWERS = {
 export const ROUND2_ANSWERS = {
   FAV_PERSON: ["nathan", "baby", "big baby", "abbie", "jenna", "family", "jarmans", "caroline", "harlows", "harlow", "riley", "alexa", "reese", "alison", "garron", "bishop", "cringe content crew", "ccc"],
   FAV_PIZZA: ["sausage and honey", "sausage & honey", "sausage", "honey", "mozzarella", "rosemary potato and bacon", "potato", "bacon", "rosemary", "cherry"],
-  STARDEW_ACTIVITY: ["fishing", "fish", "fighting", "fight", "mining", "mine", "putting sprinklers"],
+  STARDEW_ACTIVITY_BIG: ["fishing", "fish", "fighting", "fight", "mining", "mine", "putting sprinklers"],
+  STARDEW_ACTIVITY_SMOL: ["mining", "mine", "farming", "farm", "exploring", "decorating home", "decorating", "decorating house", "feeding animals", "feeding", "raising animals", "raising livestock"],
   FAV_CHRISTMAS_GIFT: ["deskmat", "desk mat", "fish desk mat", "fishy deskmat", "fishy desk mat", "fish deskmat", "mouse pad", "mousepad", "fish mouse pad", "fish mousepad"]
 }
