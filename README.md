@@ -1,4 +1,8 @@
-# anniversary
+# Anniversary
+
+Website created for my loving partner. Asks 3 questions that are related to our relationship. After the 3rd question it shows a video recapping the last year.
+
+Written with HTML, CSS, JavaScript, and jQuery.
 
 ## Credits
 
