@@ -11,12 +11,15 @@ export const ROUND2_QUESTIONS = {
   FAV_PIZZA: "What's your favorite pizza or topping at Vesta?",
   STARDEW_ACTIVITY_BIG: "What's a favorite Stardew activity big baby likes to do?",
   STARDEW_ACTIVITY_SMOL: "What's a favorite Stardew activity smol baby likes to do?",
-  FAV_CHRISTMAS_GIFT: "What did you give big baby that he loves so much?",
-  UTAH_24_HRS: "Where did we go and come back within 24 hours?",
+  BG3: "Who did smol baby replay all of Act 1 in Baldur's Gate to romance?",
+  VACATION: "Where did we sweat 24/7 for almost a month?"
+  // FAV_CHRISTMAS_GIFT: "What did you give big baby that he loves so much?",
+  // UTAH_24_HRS: "Where did we go and come back within 24 hours?",
 }
 
 export const ROUND3_QUESTIONS = {
   FAV_MEMORY: "What's one of your favorite memories of last year?",
   ACCOMPLISHMENT: "What's something you accomplished last year?",
-  FAV_ACTIVITY: "What's a favorite activity you like to do with big baby?"
+  FAV_ACTIVITY: "What's a favorite activity you like to do with big baby?",
+  NEXT_VACATION: "Where does smol baby want to travel to with big baby?"
 }
