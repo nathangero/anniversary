@@ -10,7 +10,7 @@ export const ROUND2_QUESTIONS = {
   FAV_PERSON: "Who's someone you like being around?",
   FAV_PIZZA: "What's your favorite pizza or topping at Vesta?",
   STARDEW_ACTIVITY_BIG: "What's a favorite Stardew activity big baby likes to do?",
-  STARDEW_ACTIVITY_SMOL: "What's a favorite Stardew activity smole baby likes to do?",
+  STARDEW_ACTIVITY_SMOL: "What's a favorite Stardew activity smol baby likes to do?",
   FAV_CHRISTMAS_GIFT: "What did you give big baby that he loves so much?",
   UTAH_24_HRS: "Where did we go and come back within 24 hours?",
 }

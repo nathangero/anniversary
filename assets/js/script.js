@@ -35,7 +35,7 @@ const renderAnniversary = () => {
       <h2>Here's to another year with the best partner ever!!</h2>
       <p>I love you so much baby 😚 and I love eeeeevery second being with you! Here's a recap of being with you in ${year - 1}.</p>
       <br>
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JSgyVs4GHtI?si=scXprVeMwSjf1Mt5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/QQq0jmlg2IM?si=PNLeoa8ouAFqsNrr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>`
   )
 }
